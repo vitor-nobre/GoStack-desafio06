@@ -5,7 +5,7 @@ export default class CreateCategorys1606777176273
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'categorys',
+        name: 'categories',
         columns: [
           {
             name: 'id',
@@ -34,6 +34,6 @@ export default class CreateCategorys1606777176273
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('categorys');
+    await queryRunner.dropTable('categories');
   }
 }

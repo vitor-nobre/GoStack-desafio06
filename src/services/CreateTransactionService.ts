@@ -26,8 +26,10 @@ class CreateTransactionService {
 
     const balance = await transactionRepository.getBalance();
 
-    if (type === 'outcome' && balance.total <= 0) {
-      throw new AppError('Saldo insuficiente');
+    if (type === 'outcome') {
+      if (balance.total.valueOf() - value < 0) {
+        throw new AppError('Saldo insuficiente');
+      }
     }
 
     const categoryService = new CreateCategoryService();
